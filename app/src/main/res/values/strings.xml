@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">TestEmail</string>
+
+    <string name="hint_to">To :</string>
+    <string name="hint_subject">Subject :</string>
+    <string name="hint_email_desc">Write here</string>
+
+    <string name="sent_mail">Sent</string>
+    <string name="all_mail">All</string>
+    <string name="active_mail">Active</string>
+    <string name="favorite_mail">Favorite</string>
+    <string name="delete_mail">Mail is deleted</string>
+    <string name="delete_all_mail">Delete all active email</string>
+
+    <string name="menu_filter">Filter</string>
+    <string name="menu_delete_mail">Delete active email</string>
+    <string name="navigation_view_header_title">Email</string>
+
+    <string name="empty_mail_message">To: cannot be empty</string>
+    <string name="empty_mail">You have no email</string>
+
+    <string name="alert_message_delete_all">Are you sure to delete all active email?</string>
+    <string name="alert_message_delete">Are you sure to delete this email</string>
+    <string name="alert_yes">Yes</string>
+    <string name="alert_no">No</string>
+    <string name="alert_ok">Ok</string>
+
+    <string name="compose_email">Compose email</string>
+    <string name="mail_marked_favorite">Mail marked favorite</string>
+    <string name="mail_marked_active">Mail marked active</string>
+    <string name="loading_mail_error">Error while loading email</string>
+    <string name="successfully_sent_mail_message">Mail Sent</string>
+    <string name="list_title">Email List</string>
+    <string name="no_data">No data</string>
+    <string name="loading">LOADING</string>
+
+    <string-array name="list_mail_array">
+        <item>@string/nav_all</item>
+        <item>@string/nav_active</item>
+        <item>@string/nav_favorite</item>
+    </string-array>
+
+    <string name="nav_all">All</string>
+    <string name="nav_active">Active</string>
+    <string name="nav_favorite">Favorite</string>
+    <string name="label_all">All email</string>
+    <string name="label_active">Active email</string>
+    <string name="label_favorite">Favorite email</string>
+    <string name="no_mail_all">You have no Email!</string>
+    <string name="no_mail_active">You have no active Email!</string>
+    <string name="no_mail_favorite">You have no favorite Email!</string>
+    <string name="no_mail_add">Add a Email item +</string>
+    <string name="refresh">Refresh</string>
+
+</resources>

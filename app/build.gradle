@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.example.ireos.testemail"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.compileSdkVersion
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets { main { java.srcDirs = ['src/main/java', 'src/mock/java/'] } }
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '26.0.2'
+            }
+        }
+    }
+
+    resolutionStrategy.force 'com.google.code.findbugs:jsr305:2.0.1'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rootProject.ext.libraries.appCompat
+    implementation rootProject.ext.libraries.androidSupport
+    implementation rootProject.ext.libraries.designSupport
+    implementation rootProject.ext.libraries.vectorSupport
+    implementation rootProject.ext.libraries.recyclerView
+    implementation rootProject.ext.libraries.cardView
+    implementation rootProject.ext.libraries.navigationTabBar
+
+    implementation rootProject.ext.libraries.guavaAndroid
+    implementation rootProject.ext.libraries.roomRuntime
+    annotationProcessor rootProject.ext.libraries.roomCompiler
+
+    implementation rootProject.ext.libraries.supportAnnotation
+
+    testImplementation rootProject.ext.testLibraries.junit
+
+    androidTestImplementation rootProject.ext.testLibraries.supportTestRunner
+
+    androidTestImplementation rootProject.ext.testLibraries.espressoCore
+    androidTestImplementation rootProject.ext.testLibraries.espressoContrib
+    androidTestImplementation rootProject.ext.testLibraries.espressoIntents
+    androidTestImplementation rootProject.ext.testLibraries.espressoIdlingConcurrent
+    implementation rootProject.ext.testLibraries.espressoIdlingResource
+
+    // Resolve conflicts between main and test APK:
+    androidTestImplementation rootProject.ext.libraries.supportAnnotation
+    androidTestImplementation rootProject.ext.libraries.androidSupport
+    androidTestImplementation rootProject.ext.libraries.recyclerView
+    androidTestImplementation rootProject.ext.libraries.appCompat
+    androidTestImplementation rootProject.ext.libraries.designSupport
+
+}
+
